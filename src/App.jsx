@@ -1,6 +1,9 @@
 // src/App.jsx
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import Landing from "./pages/Landing";
+import ConnectBanks from "./pages/ConnectBanks";
 import Dashboard from "./pages/Dashboard";
 
 // Simple Home Page Component
@@ -14,6 +17,18 @@ function Home() {
           Go to Dashboard
         </button>
       </Link>
+      <br />
+      <Link to="/connect-banks">
+        <button style={{ padding: "10px 20px", marginTop: "10px" }}>
+          Connect Banks
+        </button>
+      </Link>
+      <br />
+      <Link to="/landing">
+        <button style={{ padding: "10px 20px", marginTop: "10px" }}>
+          Landing Page
+        </button>
+      </Link>
     </div>
   );
 }
@@ -21,12 +36,14 @@ function Home() {
 // Main App Component with Routing
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/connect-banks" element={<ConnectBanks />} />
+        <Route path="/landing" element={<Landing />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
